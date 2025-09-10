@@ -1,4 +1,5 @@
 import copy
+import time
 
 # Define the goal state
 GOAL_STATE =[[1, 2, 3],
@@ -67,7 +68,10 @@ start_state = [[1, 2, 3],
                [0, 4, 6],
                [7, 5, 8]]
 
+start_time = time.time()
 solution_path = iddfs(start_state)
+end_time = time.time()
+runtime = end_time - start_time
 
 if solution_path:
     print("Solution found in", len(solution_path) - 1, "moves.")
@@ -75,5 +79,7 @@ if solution_path:
         for row in step:
             print(row)
         print()
+    print(f"Runtime: {runtime:.6f} seconds")
 else:
     print("No solution found.")
+    print(f"Runtime: {runtime:.6f} seconds")
