@@ -1,5 +1,6 @@
 import heapq
 from termcolor import colored
+import time
 
 # Class to represent the state of the 8-puzzle
 class PuzzleState:
@@ -107,11 +108,18 @@ def print_solution(solution):
 initial_state = [1, 2, 3, 4, 8, 0, 7, 6, 5]
 
 # Solve the puzzle using A* algorithm
+start_time = time.time()
 solution = a_star(initial_state)
+end_time = time.time()
+
+runtime = end_time - start_time
+
 
 # Print the solution
 if solution:
     print(colored("Solution found:", "green"))
     print_solution(solution)
+    print(colored(f"Runtime: {runtime:.6f} seconds", "cyan"))
 else:
     print(colored("No solution exists.", "red"))
+    print(colored(f"Runtime: {runtime:.6f} seconds", "cyan"))
