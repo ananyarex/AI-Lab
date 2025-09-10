@@ -1,24 +1,12 @@
 import copy
 
 # Define the goal state
-GOAL_STATE = [[1, 2, 3],
+GOAL_STATE =[[1, 2, 3],
               [4, 5, 6],
-              [7, 8, 0]]
+              [7, 8, 0]] 
 
 # Directions: up, down, left, right
 DIRS = [(-1, 0), (1, 0), (0, -1), (0, 1)]
-
-def manhattan_distance(state):
-    distance = 0
-    for i in range(3):
-        for j in range(3):
-            val = state[i][j]
-            if val == 0:
-                continue
-            goal_x = (val - 1) // 3
-            goal_y = (val - 1) % 3
-            distance += abs(goal_x - i) + abs(goal_y - j)
-    return distance
 
 def find_zero(state):
     for i in range(3):
@@ -76,8 +64,8 @@ def dls(state, depth, visited, path):
 
 # Example usage:
 start_state = [[1, 2, 3],
-               [4, 8, 0],
-               [7, 6, 5]]
+               [0, 4, 6],
+               [7, 5, 8]]
 
 solution_path = iddfs(start_state)
 
